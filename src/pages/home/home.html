@@ -1,0 +1,24 @@
+<ion-content padding>
+  <p id="changeLanguage" (click)="changeLanguage()">{{ 'CHANGE_LANGUAGE' | translate }}</p>
+  <img src="./assets/imgs/logo.png" id="logo" width="200px">
+  <div id="logos">
+    <ion-icon name="logo-google" (click)="goToOtherLogin()"></ion-icon>
+    <ion-icon name="logo-facebook" (click)="goToOtherLogin()"></ion-icon>
+    <ion-icon name="logo-twitter" (click)="goToOtherLogin()"></ion-icon>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons>
+      <button ion-button color="primary" id="signin" (click)="goSignIn()">
+        {{ 'SIGN_IN' | translate }}
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button ion-button color="primary" id="signup" (click)="goRegister()">
+        {{ 'SIGN_UP' | translate }}
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

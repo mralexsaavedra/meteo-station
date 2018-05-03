@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-navbar>
+      <ion-title>{{ 'TIME_SERIES' | translate }}</ion-title>      
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding> 
+    <ion-card>
+      <ion-card-header>
+        {{ 'TEMPERATURE' | translate }}
+      </ion-card-header>
+      <ion-card-content>
+        <canvas #lineCanvasTemp></canvas>
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-header>
+        {{ 'HUMIDITY' | translate }}
+      </ion-card-header>
+      <ion-card-content>
+        <canvas #lineCanvasHum></canvas>
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-header>
+        {{ 'PRESSURE' | translate }}
+      </ion-card-header>
+      <ion-card-content>
+        <canvas #lineCanvasPress></canvas>
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-header>
+        {{ 'HEAT_INDEX' | translate }}
+      </ion-card-header>
+      <ion-card-content>
+        <canvas #lineCanvasHI></canvas>
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-header>
+        {{ 'DEW_POINT' | translate }}
+      </ion-card-header>
+      <ion-card-content>
+        <canvas #lineCanvasDP></canvas>
+      </ion-card-content>
+    </ion-card>
+</ion-content>

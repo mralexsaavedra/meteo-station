@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-navbar>
+      <ion-title>{{ 'SIGN_IN' | translate }}</ion-title>      
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <ion-list>  
+    <form [formGroup]="loginForm" (submit)="loginUser()">                    
+      <ion-item>
+        <ion-label floating>{{ 'EMAIL' | translate }}</ion-label>
+        <ion-input type="email" formControlName="email" [class.invalid]="!loginForm.controls.email.valid &&
+        loginForm.controls.email.dirty"></ion-input>
+      </ion-item>
+        <ion-item class="error-message" *ngIf="!loginForm.controls.email.valid  &&
+        loginForm.controls.email.dirty">
+        <p>{{ 'VALID_EMAIL' | translate }}</p>
+      </ion-item> 
+         
+      <ion-item>
+        <ion-label floating>{{ 'PASSWORD' | translate }}</ion-label>
+        <ion-input [type]="!showEyeOff() ? 'password' : 'text'" formControlName="password" [(ngModel)]="password" [class.invalid]="!loginForm.controls.password.valid &&
+        loginForm.controls.password.dirty"></ion-input>
+        <ion-item class="error-message" *ngIf="!loginForm.controls.password.valid  &&
+        loginForm.controls.password.dirty">
+          <p>{{ 'VALID_PASSWORD' | translate }}</p>
+        </ion-item>
+        <button ion-button clear type="button" item-right id="eyeButton"> 
+          <ion-icon name="ios-eye" id="eyeIcon" (click)="showPassword()" *ngIf="showEyeOff()"></ion-icon> 
+          <ion-icon name="ios-eye-off" id="eyeIcon" (click)="showPassword()" *ngIf="!showEyeOff()"></ion-icon>           
+        </button>
+      </ion-item>
+      
+      <button ion-button outline block id="enter" type="submit" [disabled]="!loginForm.valid">{{ 'SIGN_IN' | translate }}</button>   
+    </form>
+  </ion-list>
+  <p id="resetPass" (click)="goToResetPassword()">{{ 'FORGOT_PASSWORD' | translate }}</p>
+</ion-content>
+<ion-footer>
+  <ion-toolbar (click)=createAccount()>
+    <ion-title>{{ 'DONT_HACE_ACCOUNT' | translate }}</ion-title>
+  </ion-toolbar>
+</ion-footer>
+

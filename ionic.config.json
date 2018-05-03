@@ -1,0 +1,8 @@
+{
+  "name": "saga",
+  "app_id": "54f07c0d",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}

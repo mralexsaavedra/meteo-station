@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-navbar>
+      <ion-title>{{ 'SIGN_UP' | translate }}</ion-title>            
+  </ion-navbar>
+</ion-header>
+<ion-content padding>   
+  <ion-list>  
+    <form [formGroup]="signupForm" (submit)="signupUser()">          
+      <ion-item>
+        <ion-input type="text" placeholder="{{ 'NAME' | translate }}" formControlName="name"></ion-input>
+      </ion-item> 
+
+      <ion-item>
+        <ion-input type="email" placeholder="{{ 'EMAIL' | translate }}" formControlName="email" [class.invalid]="!signupForm.controls.email.valid && signupForm.controls.email.dirty"></ion-input>       
+      </ion-item> 
+      <ion-item class="error-message" *ngIf="!signupForm.controls.email.valid  && signupForm.controls.email.dirty">
+        <p>{{ 'VALID_EMAIL' | translate }}</p>
+      </ion-item>
+
+      <ion-item>
+        <ion-input type="password" placeholder="{{ 'PASSWORD' | translate }}" formControlName="password" [class.invalid]="!signupForm.controls.password.valid && signupForm.controls.password.dirty"></ion-input>
+      </ion-item>   
+      <ion-item class="error-message" *ngIf="!signupForm.controls.password.valid  && signupForm.controls.password.dirty">
+        <p>{{ 'VALID_PASSWORD' | translate }}</p>
+      </ion-item>  
+
+      <button ion-button outline block id="register" type="submit" [disabled]="!signupForm.valid">
+        {{ 'SIGN_UP' | translate }}
+      </button> 
+    </form> 
+  </ion-list>
+</ion-content>
+<ion-footer>
+  <ion-toolbar (click)=goSignIn()>
+    <ion-title id="toolbarTitle">{{ 'HAVE_ACCOUNT' | translate }}</ion-title>
+  </ion-toolbar>
+</ion-footer>

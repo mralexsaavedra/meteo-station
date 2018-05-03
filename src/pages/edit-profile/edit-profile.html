@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{ 'EDIT_PROFILE' | translate }}</ion-title>      
+    <ion-buttons end>
+      <button ion-button (click)="done()" [disabled]="!isReadyToSave" strong>
+        <span ion-text color="primary">
+          {{ 'SAVE' | translate }}
+        </span>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>   
+    <form [formGroup]="editProfileForm" (submit)="editUser()">  
+      <input type="file" #fileInput style="visibility: hidden; height: 0px" name="files[]" (change)="processWebImage($event)" />
+        <div class="profile-image-wrapper" (click)="getPicture()">
+          <div class="profile-image-placeholder" *ngIf="!this.editProfileForm.controls.profilePic.value">
+            <ion-icon name="add"></ion-icon>
+            <div>
+              {{ 'ITEM_CREATE_CHOOSE_IMAGE' | translate }}
+            </div>
+          </div>
+          <div class="profile-image" [style.backgroundImage]="getProfileImageStyle()" *ngIf="this.editProfileForm.controls.profilePic.value"></div>
+       </div>    
+      <ion-list>            
+        <ion-item>
+          <ion-label stacked>{{ 'NAME' | translate }}</ion-label>            
+          <ion-input type="text" formControlName="name"></ion-input>
+        </ion-item>
+        
+        <ion-item id="itemEmail">
+          <ion-label stacked id="labelEmail">{{ 'EMAIL' | translate }}</ion-label>            
+          <ion-label id="email" (click)="updateEmail()">{{user.email}}</ion-label>
+        </ion-item>
+
+        <ion-item id="itemAPI">
+          <ion-label stacked id="labelAPI">{{ 'USER_API_KEY_THINGSPEAK' | translate }}</ion-label>            
+          <!--ion-label id="api" (click)="showPromptUserAPI()">{{user_api_key}}</ion-label-->
+          <ion-label id="api">{{user_api_key}}</ion-label>
+        </ion-item>
+
+        <ion-item id="itemIDChannel">
+          <ion-label stacked id="labelAPI">{{ 'CHANNEL_ID_THINGSPEAK' | translate }}</ion-label>            
+          <ion-label id="api" (click)="presentActionSheet()">{{channel_name}}</ion-label>
+        </ion-item>
+      </ion-list>
+    </form>
+    
+    <button ion-button color="danger" block id="deleteAccount" (click)="showConfirmDelete()">
+      {{ 'DELETE_ACCOUNT' | translate }}
+    </button>
+</ion-content>

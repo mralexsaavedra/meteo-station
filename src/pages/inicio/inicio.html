@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar>
+    <ion-icon name="menu" class="menu" color="primary" menuToggle left></ion-icon>              
+    <ion-title>{{ 'HOME' | translate }} - {{channel_name}}</ion-title>    
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding> 
+  <ion-card>
+    <ion-card-content>
+      <canvas #lineCanvas height="200"></canvas>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-content>
+      <canvas #lineCanvas2 height="200"></canvas>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-content>
+      <canvas #pressureCanvas height="200"></canvas>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

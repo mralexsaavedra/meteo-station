@@ -1,0 +1,36 @@
+<ion-menu [content]="content">   
+    <ion-content class="custom">
+        <ion-item>
+            <p text-right>v1.0.0</p>
+            <h2 id="titulo"><b>Meteo Station</b></h2>
+        </ion-item>
+        <ion-list>
+            <!--button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+                {{p.title}}
+            </button-->
+            <button menuClose ion-item (click)="openViewGraphics()">
+                {{ 'TIME_SERIES' | translate }}                
+            </button>
+            <button menuClose ion-item (click)="openGeolocalizacion()">
+                {{ 'GEOLOCALIZACION' | translate }}                
+            </button>
+            <button menuClose ion-item (click)="openAboutUs()">
+                {{ 'ABOUT_US' | translate }}                
+            </button>
+            <button menuClose ion-item (click)="openEditProfile()">
+                {{ 'EDIT_PROFILE' | translate }}                
+            </button>
+            <button menuClose ion-item (click)="openChangePassword()">
+                {{ 'CHANGE_PASSWORD' | translate }}                
+            </button>            
+            <button menuClose ion-item (click)="logout()">
+                <span style="color: red">{{ 'LOGOUT' | translate }}</span>              
+            </button>
+        </ion-list>       
+    </ion-content>
+    <ion-footer class="footerMenu">
+        <img id="footerMenuImg" src="./assets/imgs/empresa.PNG">
+    </ion-footer>
+</ion-menu>
+
+<ion-nav [root]="rootPage" #content></ion-nav>

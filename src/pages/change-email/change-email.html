@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons left>
+      <button ion-button (click)="dismiss()">
+        <ion-icon name="close" color="primary"></ion-icon>          
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button ion-button (click)="done()" [disabled]="!changeEmailForm.valid" strong>
+        <ion-icon name="checkmark" color="primary"></ion-icon>          
+      </button>
+    </ion-buttons>
+    <ion-title class="modalTitle">{{ 'CHANGE_EMAIL' | translate }}</ion-title>              
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+  <form [formGroup]="changeEmailForm" (submit)="changeEmail()" novalidate>
+    <ion-item>
+      <ion-icon name="ios-mail-outline" item-left></ion-icon>                 
+      <ion-input formControlName="email" type="email"
+        [class.invalid]="!changeEmailForm.controls.email.valid && changeEmailForm.controls.email.dirty"></ion-input>
+    </ion-item>
+    <ion-item class="error-message" *ngIf="!changeEmailForm.controls.email.valid  && changeEmailForm.controls.email.dirty">
+      <p>{{ 'VALID_EMAIL' | translate }}</p>
+    </ion-item>   
+  </form>
+</ion-content>

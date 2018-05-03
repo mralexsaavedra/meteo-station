@@ -1,0 +1,72 @@
+page-home {
+    @media screen and (orientation:portrait) {
+        #logo{
+            margin-top: 30%;
+        }
+        #logos{
+            margin-top: 40%;
+        }
+        #changeLanguage{
+            margin-top: 5%;
+        }
+    }
+    @media screen and (orientation:landscape) {
+        #logo{
+            margin-top: 0px;
+        }
+        #logos{
+            margin-top: 0px;
+        }
+        #changeLanguage{
+            margin-top: 0px;
+        }
+    }
+    @media screen and (orientation:landscape) and (min-width: 640px) and (max-width: 732px){
+        #logos{
+            margin-top: 2%;
+        }
+    }
+    @media screen and (orientation:landscape) and (min-width: 732px) and (max-width: 1000px){
+        #logos{
+            margin-top: 4%;
+        }
+    }
+    @media screen and (orientation:landscape) and (min-width: 1000px){
+        #logo{
+            margin-top: 15%;
+        }
+        #logos{
+            margin-top: 15%;
+        }
+        #changeLanguage{
+            margin-top: 5%;
+        }
+    }
+    #logo{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #signin{
+        left: 35px;
+        font-weight: bold;        
+    }
+    #signup{
+        right: 35px;
+        font-weight: bold;        
+    }
+    .bar-button-ios{
+        font-size: 1.4rem;
+    }
+    #logos{
+        text-align: center;
+    }
+    ion-icon{
+        font-size: 25px;
+        margin-left: 10px;
+        cursor: pointer;
+    }
+    #changeLanguage{
+        text-align: center;        
+    }
+}

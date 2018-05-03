@@ -1,0 +1,13 @@
+page-signup {
+    ion-footer .toolbar-title{
+        font-size: 14px;
+        cursor: pointer;
+        text-align: center; 
+    }
+    #register{
+        margin-top: 10px;        
+    }
+    ion-footer .toolbar-ios ion-title{
+        width: max-content;
+    }
+}

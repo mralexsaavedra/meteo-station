@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons left>
+      <button ion-button (click)="dismiss()">
+        <span ion-text color="primary">{{ 'CANCEL' | translate }}</span>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+  <ion-item *ngIf="userProfile">
+    <ion-avatar item-left>
+      <img [src]="userProfile.photoURL">
+    </ion-avatar>
+    <h2>{{ userProfile.displayName }}</h2>
+    <h3>{{ userProfile.email }}</h3>
+    <h3>{{ userProfile.twName }}</h3>    
+  </ion-item>
+  <button ion-button block color="danger" (click)="googleLogin()" *ngIf="!userProfile" class="loginButton" id="googleButton">
+    <ion-icon name="logo-googleplus"></ion-icon>
+    {{ 'LOGIN_GOOGLE' | translate }}
+  </button>
+  <button ion-button block color="facebook" (click)="facebookLogin()" *ngIf="!userProfile" class="loginButton">
+    <ion-icon name="logo-facebook"></ion-icon>
+    {{ 'LOGIN_FACEBOOK' | translate }}
+  </button>
+  <button ion-button block color="twitter" (click)="twitterLogin()" *ngIf="!userProfile" class="loginButton">
+    <ion-icon name="logo-twitter"></ion-icon>
+    {{ 'LOGIN_TWITTER' | translate }}
+  </button>
+</ion-content>
